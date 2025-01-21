@@ -19,7 +19,7 @@ import PIL
 
 from paddleocr import PaddleOCR
 from colorama import Fore, Style
-ocr = PaddleOCR(use_angle_cls=False,use_gpu=False, lang="en")
+ocr = PaddleOCR(use_angle_cls=True,use_gpu=False, lang="en")
 
 class Bot(DawnExtensionAPI):
     def __init__(self, account: Account):
@@ -48,7 +48,7 @@ class Bot(DawnExtensionAPI):
                             else:
                                 new_image.putpixel((x, y), (255, 255, 255, 255))  # 将其他像素设为透明
                     new_image_array = np.array(new_image)
-                    ocr_text = ocr.ocr(new_image_array)
+                    ocr_text = ocr.ocr(new_image_array,cls=True)
                     #ocr_text = pytesseract.image_to_string(new_image)
                     #new_image.show()
                     text_no_spaces = ""
