@@ -19,9 +19,7 @@ import PIL
 
 from paddleocr import PaddleOCR
 from colorama import Fore, Style
-
-
-
+ocr = PaddleOCR(use_angle_cls=False,use_gpu=False, lang="en")
 
 class Bot(DawnExtensionAPI):
     def __init__(self, account: Account):
