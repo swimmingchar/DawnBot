@@ -55,7 +55,7 @@ class Bot(DawnExtensionAPI):
                     for i in ocr_text[0]:
                         text_no_spaces = text_no_spaces + i[1][0]
                     text_no_spaces = text_no_spaces.replace(" ", "")
-                    print(text_no_spaces)
+                    logger.info(f"text_no_spaces is : {text_no_spaces}")
 
                     answer, solved, *rest = await captcha_solver.solve_image(image)
                     solved = True
